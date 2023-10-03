@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Predicting Masks for Autonomous Vehicles</title>
+    <!-- Link to Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+
+<body>
+<div class="container mt-5">
+    <h1 class="text-center">Predicting Masks for Autonomous Vehicles</h1>
+
+    <!-- Image Selection Form -->
+    <div class="card p-4">
+        <form action="predicted" method="POST">
+            <div class="form-group">
+                <label for="option">Select Your Image</label>
+                <select class="form-control" id="option" name="option">
+                    {% for o in img_list %}
+                    <option value="{{ o }}" selected>{{ o }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <button type="submit" class="btn btn-primary">Select</button>
+        </form>
+    </div>
+
+    <!-- Prediction Results -->
+    <div class="container mt-4">
+        <h2>Prediction Result</h2>
+		<img src="data:image/png;base64,{{ img_data }}" alt="Image" class="img-fluid">
+    </div>
+</div>
+
+<!-- Link to Bootstrap JS and jQuery -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
